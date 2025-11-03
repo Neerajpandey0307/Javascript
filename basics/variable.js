@@ -7,3 +7,6 @@ let accountState; // in this variable without giving the values you can declared
 console.log(accountId) // this is used to print the variable values.
 
 console.table([accountId,accountEmail,accountPassword,accountCity, accountState]) // this is used to print variable values in tabular form.
+
+
+console.log(accountState)
