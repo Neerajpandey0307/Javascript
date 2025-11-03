@@ -11,3 +11,5 @@ let state; // this is undifined datatype
 //object
 console.log(typeof undefined);
 console.log(typeof(null))
+
+// checking git add commit and push
