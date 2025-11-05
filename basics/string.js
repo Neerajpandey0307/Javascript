@@ -1,40 +1,100 @@
-const name = "neeraj"
-const repoCoutn =50
+/*
+==================================================
+📘 TOPIC: STRINGS IN JAVASCRIPT
+==================================================
+*/
 
-// console.log(name + repoCoutn + " value" ) // not a way 
-// 
-// console.log(`hello my name is ${name} and my repo is ${repoCoutn}`)
-//correct way is bacstik
-// console.log("hello")
+// ===============================
+// 🌟 Declaring Strings
+// ===============================
+const name = "neeraj";
+const repoCount = 50;
 
-// another way to declare string 
-const anotheName = new String("neeraj-pandey-com")
+// ❌ Old (not recommended)
+console.log(name + repoCount + " value");
 
-// methods in strings
-
-// console.log(anotheName[0]) // to access key value pair
-// console.log(anotheName.length) 
-// console.log(anotheName.toUpperCase())
-
-// console.log(anotheName.charAt('2'))
-// console.log(anotheName.indexOf('j'))
-
-// const newstring = anotheName.substring(0,4)
-// console.log(newstring) 
-
-// const newstringone = "    neeraj    "
-// console.log(newstringone)
-// console.log(newstringone.trim())
+// ✅ New (correct way using Template Literals)
+console.log(`Hello, my name is ${name} and my repo count is ${repoCount}`);
+// Backticks `` → allow variables inside ${}
 
 
-// const url ="https://neeraj.com/neeraj%20pandey"
-// console.log(url.replace('%20', ('-')))
-// console.log(url)
+// ===============================
+// 🌟 Another way to create string (using String object)
+const anotherName = new String("neeraj-pandey-com");
+console.log(anotherName);
 
-// console.log(url.includes('z')) // to find any chac
+// ===============================
+// 🌟 Accessing values & properties
+console.log(anotherName[0]); // n → access character using index
+console.log(anotherName.length); // 17 → total characters
+console.log(anotherName.toUpperCase()); // "NEERAJ-PANDEY-COM"
+console.log(anotherName.charAt(2)); // e → character at position 2
+console.log(anotherName.indexOf('j')); // 4 → index of character 'j'
 
-console.log(anotheName.split('-')) // to conver split in array
 
-const neeraj ="student-in-power"
-console.log(neeraj.length)
-console.log(neeraj.split('-'))
+// ===============================
+// 🌟 substring()
+const newString = anotherName.substring(0, 4);
+console.log(newString); // "neer"
+// (from index 0 to 3 → last index not included)
+
+
+// ===============================
+// 🌟 trim()
+const newStringOne = "    neeraj    ";
+console.log(newStringOne);       // "    neeraj    "
+console.log(newStringOne.trim()); // "neeraj" → removes spaces
+
+/*
+🧠 .trim() removes spaces from start & end only
+*/
+
+
+// ===============================
+// 🌟 replace() and includes()
+const url = "https://neeraj.com/neeraj%20pandey";
+
+console.log(url.replace('%20', '-')); // replaces %20 with -
+console.log(url.includes('z')); // false → checks if character/word exists
+
+
+// ===============================
+// 🌟 split()
+console.log(anotherName.split('-'));
+// ["neeraj", "pandey", "com"]
+
+/*
+🧠 split() → breaks string into array using given separator
+*/
+
+
+// ===============================
+// 🌟 Example
+const neeraj = "student-in-power";
+console.log(neeraj.length); // 16
+console.log(neeraj.split('-')); // ["student", "in", "power"]
+
+
+/*
+==================================================
+🧠 SHORT NOTES
+==================================================
+
+| Method / Property   | Example | Output / Use |
+|----------------------|---------|---------------|
+| length               | name.length | gives total characters |
+| toUpperCase()        | name.toUpperCase() | converts to capital letters |
+| charAt(n)            | name.charAt(2) | character at index n |
+| indexOf()            | name.indexOf('r') | finds index of character |
+| substring(a,b)       | name.substring(0,4) | string from a to b-1 |
+| trim()               | "  hi  ".trim() | removes extra spaces |
+| replace(a,b)         | str.replace('%20','-') | replaces value |
+| includes(value)      | str.includes('z') | checks if value exists |
+| split(separator)     | str.split('-') | breaks string into array |
+
+💡 Tips:
+✅ Always use backticks (``) for modern string writing.
+✅ Strings are immutable → cannot change original directly.
+✅ Use trim() to clean spaces from input fields.
+==================================================
+*/

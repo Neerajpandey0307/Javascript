@@ -1,20 +1,109 @@
-//PRIMITIVE or AKA Call By Value
+/*
+=========================================================
+📘 TOPIC: PRIMITIVE DATA TYPES (Call by Value)
+=========================================================
 
-//7 Types : String , Number , Boolean , Null , Undefined ,symbol ,BigInt
+🧠 Meaning:
+Primitive types are simple data types.
+When you copy or pass them, their VALUE is copied — not the original variable.
 
-const NameOfSoldier ="Neeraj" // String
+That’s why they are also called "Call by Value".
+*/
 
-const ScoreInProbation = 92 // Number
-const AcurateScoreInProbation = 92.4 // Its also a Number datatype but this is in float , but in js we mark float integer's as Number datatype.
+// 7 Types: String , Number , Boolean , Null , Undefined , Symbol , BigInt
 
-const DoesSoldierClearProbation = true // Boolean
 
-const SoldierParentCompany = null // Null Datatype
+// ===============================
+// 🌟 STRING
+// ===============================
+const NameOfSoldier = "Neeraj"; // String → text data inside quotes
+// Example: "Hello", "123", "Neeraj"
 
-let SoldierCompanyInParaSf; //Undifined Datatype
+// ===============================
+// 🌟 NUMBER
+// ===============================
+const ScoreInProbation = 92; // Number → integer
+const AccurateScoreInProbation = 92.4; // Number → float (decimal)
 
-const DoesSoldierGetsMaroonBarey =Symbol('YES') // Symbol (it is a special type where we can mark our variable as special or unique)
+// Note: In JS, both integer and float are considered Number type.
 
-const SoldierTemporaryId = 9876532343222n // BigInt (To store the large number of interger we use BigInt.)
 
-console.table([NameOfSoldier ,ScoreInProbation ,AcurateScoreInProbation ,DoesSoldierClearProbation,SoldierParentCompany,SoldierCompanyInParaSf ,DoesSoldierGetsMaroonBarey,SoldierTemporaryId])
+// ===============================
+// 🌟 BOOLEAN
+// ===============================
+const DoesSoldierClearProbation = true; // Boolean → true or false
+
+
+// ===============================
+// 🌟 NULL
+// ===============================
+const SoldierParentCompany = null; // Null → empty or nothing
+// Means variable is intentionally empty
+
+
+// ===============================
+// 🌟 UNDEFINED
+// ===============================
+let SoldierCompanyInParaSf; // Undefined → declared but not given any value
+// JS automatically assigns "undefined"
+
+
+// ===============================
+// 🌟 SYMBOL
+// ===============================
+const DoesSoldierGetsMaroonBeret = Symbol('YES'); 
+// Symbol → creates a unique value (even if text is same)
+// Useful when you want to make a variable 100% unique
+
+
+// ===============================
+// 🌟 BIGINT
+// ===============================
+const SoldierTemporaryId = 9876532343222n;
+// BigInt → for storing very large numbers (bigger than normal Number can handle)
+
+
+// ===============================
+// 🌟 PRINTING ALL VALUES
+// ===============================
+console.table([
+  NameOfSoldier,
+  ScoreInProbation,
+  AccurateScoreInProbation,
+  DoesSoldierClearProbation,
+  SoldierParentCompany,
+  SoldierCompanyInParaSf,
+  DoesSoldierGetsMaroonBeret,
+  SoldierTemporaryId
+]);
+
+/*
+🧠 Explanation:
+- console.table() prints data in a table format (easy to read).
+- All above are PRIMITIVE data types.
+- When you copy these values → only the VALUE is copied (not the original variable).
+*/
+
+
+/*
+=========================================================
+🧠 SHORT NOTES:
+=========================================================
+
+| Data Type | Example | Meaning |
+|------------|----------|----------|
+| String | "Neeraj" | Text or words |
+| Number | 92, 92.4 | Numeric value (integer or float) |
+| Boolean | true / false | Yes or No type value |
+| Null | null | Empty or nothing |
+| Undefined | let x; | Declared but not assigned |
+| Symbol | Symbol("YES") | Unique and special value |
+| BigInt | 1234567890123456789n | Large numbers |
+
+💡 Tips:
+✅ Primitive = stored by VALUE
+✅ Simple, fixed-size data
+✅ typeof null → "object" (JS bug)
+✅ typeof undefined → "undefined"
+=========================================================
+*/

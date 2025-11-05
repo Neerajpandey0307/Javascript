@@ -1,51 +1,127 @@
-// singleton
-// Object.create // this also the type of to create objext hrough consrutor method and singleton is related to this , for later on.
+/*
+==================================================
+📘 TOPIC: OBJECTS IN JAVASCRIPT
+==================================================
+
+🧠 Object → A collection of key–value pairs.
+Each key has a name and a value.
+*/
 
 
-//object litereals - how to declare objects
-const employee={
-    name :"neeraj",  
-    age:24,
-    location:"noida",
-    email :"neeraj.google.com",
-    isLoggedIn:"false",
-    lastLoggedInDays :["monday","tuesday","friday"],
-    [Symbol("MachineAccess")]: "No"
+// ===============================
+// 🌟 OBJECT LITERAL — how to make an object
+// ===============================
 
- 
-}
-console.log(typeof(employee.name))// name is a key in this which the objects took as string
+const employee = {
+  name: "neeraj",
+  age: 24,
+  location: "noida",
+  email: "neeraj.google.com",
+  isLoggedIn: false,
+  lastLoggedInDays: ["monday", "tuesday", "friday"],
+  [Symbol("MachineAccess")]: "No" // Symbol key (unique)
+};
 
-console.log(employee.email) // this is a way to access the value from objects but there is a small catch to it that if the keys are in double qoutes("") then we can't able to acess it by this method.
-
-//for that we use the following method:
-
-console.log(employee["email"]) // from this method we can access the any type type of key if it is in double qoutes("") or not.
-
-console.log(employee["lastLoggedInDays"]) // this is a way to acess array from the obeject.
+console.log(typeof employee.name); // string
 
 
+// ===============================
+// 🌟 Accessing values
+// ===============================
+console.log(employee.email); // ✅ normal way to access
+console.log(employee["email"]); // ✅ works even if key has quotes
+console.log(employee["lastLoggedInDays"]); // ✅ access array from object
+
+/*
+🧠 Notes:
+- You can access keys using (.) or ["keyName"]
+- If key name has quotes or spaces → use ["keyName"]
+*/
+
+
+// ===============================
+// 🌟 Accessing Symbol values
+// ===============================
 const symbols = Object.getOwnPropertySymbols(employee);
-console.log(employee[symbols[0]]); 
-//When a Symbol is made inside an object, use Object.getOwnPropertySymbols(object) to get its key,then use that key to access its value.
+console.log(employee[symbols[0]]);
 
-// or if want simple , you have to declare the symbol outside object and put that in object from where you can access it easily like others.
+/*
+🧠 When Symbol is inside object:
+1️⃣ Use Object.getOwnPropertySymbols(object)
+2️⃣ Then use that symbol key to get its value.
+*/
 
-employee.email = "neerajpandey@cloudfare.com" // we can any value in object by this
-console.log(employee)
 
-Object.freeze(employee) // this freeze the object to edit any thing , you can edit .
-employee.name= "pandey"
-console.log(employee)
+// ===============================
+// 🌟 Update & Freeze object
+// ===============================
+employee.email = "neerajpandey@cloudfare.com"; // ✅ update value
+console.log(employee);
 
-//**********FUNCTION IN OBJECTS********************************
+Object.freeze(employee); // ❌ lock object — no changes allowed
 
-employee.greeting=function(){
-    console.log("Hello, Everyone")
-}
+employee.name = "pandey"; // won’t change due to freeze
+console.log(employee);
 
-employee.greetingtwo=function(){
-    console.log(`hello employee, ${this.name}`)
-}
-console.log(employee.greeting());
-console.log(employee.greetingtwo());
+/*
+🧠 Notes:
+- Object.freeze() → makes object read-only.
+- No new property or value change allowed.
+*/
+
+
+// ===============================
+// 🌟 Add functions inside object
+// ===============================
+
+employee.greeting = function() {
+  console.log("Hello, Everyone");
+};
+
+employee.greetingTwo = function() {
+  console.log(`Hello employee, ${this.name}`);
+};
+
+console.log(employee.greeting());    // runs function
+console.log(employee.greetingTwo()); // uses 'this' keyword
+
+/*
+🧠 Notes:
+- Functions inside objects are called METHODS.
+- 'this' keyword refers to current object.
+*/
+
+
+// ===============================
+// 🌟 SINGLETON OBJECT (for later learning)
+// ===============================
+// const user = Object.create({}) 
+// This creates an object using constructor method.
+// Singleton means only one instance of object is created.
+ 
+
+
+/*
+==================================================
+🧠 SHORT SUMMARY
+==================================================
+
+| Concept / Method | Example | Meaning |
+|------------------|----------|----------|
+| Object Literal | {name: "Neeraj"} | Simple object creation |
+| Access value | obj.key / obj["key"] | Get value |
+| Add property | obj.newKey = value | Add or update value |
+| Symbol in object | [Symbol("id")]: 101 | Unique key |
+| getOwnPropertySymbols() | Object.getOwnPropertySymbols(obj) | Get Symbol keys |
+| freeze() | Object.freeze(obj) | Lock object (no edit) |
+| Function inside object | obj.method = function(){} | Add method |
+| this | Refers to current object | Used inside methods |
+
+💡 Tips:
+✅ Use dot or bracket to access values  
+✅ Freeze object when you want to protect data  
+✅ Use 'this' inside methods for current object  
+✅ Symbol keys are always unique  
+✅ Object.create() → used in Singleton pattern
+==================================================
+*/

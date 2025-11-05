@@ -1,48 +1,122 @@
-//  JavaScript is Dynamically typed language which means
-/* 
-@ variable type is decided at runtime
-@ you don't have to write the type manually
-@ same variable can store different types
+/*
+=====================================================
+📘 TOPIC: DATA TYPES IN JAVASCRIPT
+=====================================================
+
+JavaScript is a **Dynamically Typed Language**.
+That means:
+@ Variable type is decided at runtime
+@ You don’t need to write the type manually
+@ Same variable can hold different types at different times
 @ JS engine automatically detects the type
-@ No strict type checking before runnig the code
-@ error related to type  come while running
+@ There is no strict type checking before running the code
+@ Type-related errors come only while running (runtime errors)
 */
 
-// DATATYPES ARE TWO TYPE
+// =====================================================
+// 🌟 DATA TYPES ARE OF TWO TYPES:
+// 1️⃣ Primitive
+// 2️⃣ Reference (Non-Primitive)
+// =====================================================
 
 
-// 1) Primitive 
+// =====================================================
+// 🌟 1️⃣ PRIMITIVE DATA TYPES
+// These are simple values — stored directly in memory
+// =====================================================
 
-// 7 TYPES -: String , Number , Boolean , Null , undefined, Symbol(to make any value unique), BigInt(some big value or scientific value)
+// There are 7 types: 
+// String , Number , Boolean , Null , Undefined , Symbol , BigInt
 
-let DatatypeString = "neeraj" 
-let DatatypeNumber  = 3
-let DatatypeBoolean = true
-let DatatypeNull = null // null means nothing not 0 not any other thing it means nothing 
-let DatatypeUndifined // undifined means the value is not given to this but a space had created.
-let DatatypeBigInt= 24143546765432n // it stores number but big numbers which is not possible to store in the NUMBER datatype.
-const id = symbol("2234");
-const anotherId =symbol("234")
-console.log(id===anotherId) // flase , because symbol treat every value as differnt , if they are same also , it use in production level where might some value clash , and they can be overwite.
+let dataTypeString = "neeraj";        // String → text value
+let dataTypeNumber = 3;               // Number → numeric value
+let dataTypeBoolean = true;           // Boolean → true or false
+
+let dataTypeNull = null;              // Null → nothing (empty value)
+                                       // Not 0, not undefined — means “nothing there”
+
+let dataTypeUndefined;                // Undefined → variable declared but no value given
+
+let dataTypeBigInt = 24143546765432n; // BigInt → used for very large numbers
+
+const id = Symbol("2234");            // Symbol → unique value
+const anotherId = Symbol("2234");
+
+console.log(id === anotherId); // ❌ false
+/*
+🧠 Meaning:
+- Even if two symbols have same text ("2234"), they are unique.
+- Symbol is used in production to create unique keys 
+  so that no variable overwrites another by mistake.
+*/
 
 
-//  2) Reference or Non Primitive
+// =====================================================
+// 🌟 2️⃣ REFERENCE (NON-PRIMITIVE) DATA TYPES
+// These store collections or complex data
+// =====================================================
 
-// Array , Objects ,Functions
- 
+// 🔸 Array → group of values
+const Marauders = ["Sirius", "James", "Lupin", "Peter"];
+console.log(Marauders);
+
+// 🔸 Object → group of key-value pairs
+let animagus = {
+  name: "Sirius Black",
+  AnimalAtWhichAge: 15,
+  isAlive: false
+};
+console.log(animagus);
+
+// 🔸 Function → block of code that performs a task
+const myFunction = function () {
+  console.log("Hi, I am a function");
+};
+
+myFunction();
+
+/*
+🧠 Note:
+- Arrays, Objects, and Functions are called “Reference types”.
+- Because they are stored and copied by reference (not by value).
+*/
 
 
-const Marauders=["Sirius", "James", "Lupin", "peter" ];// array
+// =====================================================
+// 🌟 EXTRA NOTE
+// =====================================================
 
-let animagous ={
-    name :"sirius black",
-    AnimalAtWhichAge: 15,
-    IsAlive : false
+/*
+✅ null type → object  (this is a known bug in JS)
+✅ typeof null → "object"
+✅ typeof undefined → "undefined"
 
-} // object
+💡 Tip:
+- Primitive types are copied by value.
+- Reference types are copied by reference (point to same memory).
+*/
 
-const MyFunction =function(){
-    console.log("hi")
-}
 
-// ************null typeof is object*********
+// =====================================================
+// 🧠 SHORT SUMMARY
+// =====================================================
+/*
+| Type Group       | Data Type Name       | Example / Meaning                             |
+|------------------|----------------------|-----------------------------------------------|
+| Primitive        | String               | "neeraj" (text)                               |
+| Primitive        | Number               | 45                                            |
+| Primitive        | Boolean              | true / false                                  |
+| Primitive        | Null                 | empty (nothing there)                         |
+| Primitive        | Undefined            | declared but not given any value              |
+| Primitive        | Symbol               | unique value (Symbol("id"))                   |
+| Primitive        | BigInt               | 12345678901234567890n (big number)            |
+| Reference (Non)  | Array                | ["Sirius", "James", "Lupin"]                  |
+| Reference (Non)  | Object               | {name:"Sirius", age:15}                       |
+| Reference (Non)  | Function             | function() { console.log("hi") }              |
+
+💡 Quick Tip:
+✅ JS decides type automatically at runtime.
+✅ Use typeof to check type of any variable.
+✅ null shows "object" (small bug in JS).
+=====================================================
+*/

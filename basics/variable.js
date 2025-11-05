@@ -1,12 +1,86 @@
-const accountId = 154655 // const variable is constant if it declared it can't be changed after.
-let accountEmail = "neerajpandey.google.com" // let variable can be changed after declaring and its a better way to declare a variable if you need to change it .
-var accountPassword = "123458"// var variable is also like let but it's rearly used because it has some flause and issues.
-accountCity = "Delhi" // you can also declare a variable without writing the const , let or var . but its not recommended.
-let accountState; // in this variable without giving the values you can declared it and give storage. this is used when the values want to give later but you need the space.
+/*
+==========================================================
+📘 TOPIC: VARIABLES IN JAVASCRIPT
+==========================================================
 
-console.log(accountId) // this is used to print the variable values.
+🧠 Variables are used to store data in memory.
+In JavaScript, we can declare variables in 3 main ways:
+  1️⃣ const
+  2️⃣ let
+  3️⃣ var
+*/
 
-console.table([accountId,accountEmail,accountPassword,accountCity, accountState]) // this is used to print variable values in tabular form.
+// ===============================
+// 🌟 1️⃣ CONST
+// ===============================
+const accountId = 154655;
+// Constant → cannot be changed once declared
+// Example: IDs, fixed values, API keys
+
+// accountId = 500; ❌ Error: not allowed (const cannot change)
 
 
-console.log(accountState)
+// ===============================
+// 🌟 2️⃣ LET
+// ===============================
+let accountEmail = "neerajpandey.google.com";
+// Can be changed after declaration (modern and safe way)
+accountEmail = "npandey@gmail.com"; // ✅ works fine
+
+
+// ===============================
+// 🌟 3️⃣ VAR
+// ===============================
+var accountPassword = "123458";
+// Works like let, but not recommended ❌
+// Because var has "function scope" (not block scope)
+// It can cause unexpected bugs when used inside blocks
+
+
+// ===============================
+// 🌟 4️⃣ Without keyword (not recommended)
+accountCity = "Delhi";
+// JS allows this, but ❌ not good practice
+// Because it becomes a global variable automatically
+
+
+// ===============================
+// 🌟 5️⃣ Declaring empty variable
+let accountState;
+// Variable made but value not given → undefined
+// Useful when we will assign value later
+
+
+// ===============================
+// 🌟 Printing values
+console.log(accountId); // prints single value
+console.log(accountState); // undefined
+
+
+// 🌟 Print all in a table
+console.table([accountId, accountEmail, accountPassword, accountCity, accountState]);
+/*
+console.table() → prints all values neatly in a table format
+*/
+
+
+/*
+==========================================================
+🧠 SHORT NOTES
+==========================================================
+
+| Keyword | Can Change Value? | Scope Type | Use For | Note |
+|----------|------------------|-------------|----------|------|
+| const    | ❌ No            | Block Scope | Fixed values | Safer for constants |
+| let      | ✅ Yes           | Block Scope | Normal use   | Recommended |
+| var      | ✅ Yes           | Function Scope | Old code | Avoid using |
+| none     | ✅ Yes           | Global Scope | Not safe | Avoid completely |
+
+💡 Tips:
+✅ Use `const` by default → for values that never change  
+✅ Use `let` when you plan to reassign later  
+❌ Avoid `var` (old JS style, causes bugs)  
+❌ Never create variable without `let` or `const`
+
+==========================================================
+*/
